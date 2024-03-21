@@ -68,7 +68,7 @@ export default async function Home() {
       <ScrollUp />
 
       <Hero />
-      {/* <AllCategories categories={[]} /> */}
+
       <TopCategories
         categories={
           featuredItems && featuredItems.length > 0
@@ -76,9 +76,10 @@ export default async function Home() {
             : []
         }
       />
+
       <Marquee />
       <Feature />
-
+      {/* <AllCategories categories={[]} /> */}
       {/* <Video /> */}
 
       {/* <Brands /> */}
