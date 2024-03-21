@@ -9,7 +9,7 @@ import Feature from "@/components/feature-news-card";
 import Contact from "@/components/Contact";
 import News from "@/components/News";
 import { TopCategories } from "@/components/TopCategories/index";
-import { AllCategories } from "@/components/TopCategories/SingleFeature";
+// import { AllCategories } from "@/components/TopCategories/SingleFeature";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
@@ -68,7 +68,7 @@ export default async function Home() {
       <ScrollUp />
 
       <Hero />
-      <AllCategories categories={[]} />
+      {/* <AllCategories categories={[]} /> */}
       <TopCategories
         categories={
           featuredItems && featuredItems.length > 0

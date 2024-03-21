@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/TopCategories/SingleFeature.tsx"
+    "components/TopCategories/SingleFeature.jsx"
   ],
   "exclude": ["node_modules"]
 }

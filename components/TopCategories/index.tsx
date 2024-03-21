@@ -42,18 +42,13 @@ interface TopCategoryCardProps {
 }
 
 const TopCategoryCard = ({ category }: TopCategoryCardProps) => (
-  <Link href={`/categories/${category.id}`}>
-    <Card>
-      <Image
-        src={category.image}
-        alt={category.name}
-        height={100}
-        width={100}
-      />
+  // <Link href={`/categories/${category.id}`}>
+  <div>
+    <Image src={category.image} alt={category.name} height={100} width={100} />
 
-      <div>
-        <h1>{category.name}</h1>
-      </div>
-    </Card>
-  </Link>
+    <div>
+      <h1>{category.name}</h1>
+    </div>
+  </div>
+  // </Link>
 );
