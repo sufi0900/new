@@ -26,7 +26,7 @@ export const ProductSchema = {
     {
       name: "description",
       title: "Description",
-      type: "text",
+      type: "array",
     },
     {
       name: "category",

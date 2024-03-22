@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/TopCategories/SingleFeature.jsx"
+    "components/TopCategories/SingleFeature.jsx",
+    "components/Search/Search.jsx"
   ],
   "exclude": ["node_modules"]
 }
