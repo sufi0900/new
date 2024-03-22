@@ -27,6 +27,22 @@ export const ProductSchema = {
       name: "description",
       title: "Description",
       type: "array",
+      of: [
+        {
+          type: "block",
+        },
+
+        {
+          type: "image",
+          fields: [
+            {
+              type: "text",
+              name: "alt",
+              title: "Alternative Text",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "category",

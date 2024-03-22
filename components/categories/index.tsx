@@ -3,7 +3,15 @@ import { Card, Grid } from "@mui/material";
 import { ICategory } from "@/utils/model";
 import Image from "next/image";
 import Link from "next/link";
-
+import Badge from "@mui/material/Badge";
+import Avatar from "@mui/material/Avatar";
+import Chip from "@mui/material/Chip";
+import { styled } from "@mui/material/styles";
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+  width: 22,
+  height: 22,
+  border: `2px solid ${theme.palette.background.paper}`,
+}));
 interface AllCategoriesProps {
   categories: ICategory[];
 }

@@ -155,7 +155,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                     <PortableText
-                      value={product.content}
+                      value={product.description}
                       // components={PortableTextComponent}
                     />
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
