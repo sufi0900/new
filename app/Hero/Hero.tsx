@@ -19,15 +19,15 @@ export const Hero = ({
 }: IHeroProps) => {
   return (
     <Card>
-      <Box mx="2rem" w={{ base: "100%", md: "50%" }}>
+      <Box>
         <h1>{heading}</h1>
-        <p py="1rem">{description}</p>
+        <p>{description}</p>
 
         <Link href={btnLink}>
           <Button>{btnLabel}</Button>
         </Link>
       </Box>
-      <Box mx="2rem" w={{ base: "100%", md: "50%" }} mt="1rem">
+      <Box>
         <img src={imageUrl} alt={heading} />
       </Box>
     </Card>

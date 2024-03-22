@@ -158,6 +158,9 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                       value={product.description}
                       // components={PortableTextComponent}
                     />
+                    {product.description}
+                    <br />
+                    <br />
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Quis enim lobortis scelerisque fermentum. Neque
