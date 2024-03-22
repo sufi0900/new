@@ -6,15 +6,11 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
-import { ReactNode } from "@/fixes";
+import { Providers } from "./providers";
 import AppContextProvider from "@/context/AppContext";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactIs.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="en">
       {/*
@@ -36,5 +32,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import { Providers } from "./providers";
