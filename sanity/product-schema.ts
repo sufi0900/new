@@ -9,6 +9,7 @@ export const ProductSchema = {
       type: "string",
       description: "Name of Product",
     },
+
     {
       name: "tableOfContents",
       title: "Table of Contents",
@@ -17,24 +18,14 @@ export const ProductSchema = {
         {
           type: "object",
           fields: [
-            {
-              name: "title",
-              title: "Title",
-              type: "string",
-            },
-            {
-              name: "slug",
-              title: "Slug",
-              type: "slug",
-              options: {
-                source: "title",
-                maxLength: 100,
-              },
-            },
+            { name: "title", type: "string" },
+            { name: "description", type: "text" },
+            { name: "id", type: "string" }, // Unique identifier for linking
           ],
         },
       ],
     },
+
     {
       name: "slug",
       title: "Slug",

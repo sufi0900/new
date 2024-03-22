@@ -370,17 +370,16 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                     <h2 className="mb-4 text-xl font-semibold">
                       Table of Contents
                     </h2>
-                    <ul className="list-disc pl-4">
-                      {product.tableOfContents.map((item, index) => (
-                        <li key={index}>
-                          <Link href={`#${item.slug}`}>
-                            <a className="text-blue-500 hover:underline">
-                              {item.title}
-                            </a>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    <nav>
+                      <h2>Table of Contents</h2>
+                      <ul>
+                        {product.tableOfContents.map((item) => (
+                          <li key={item.id}>
+                            <a href={`#${item.id}`}>{item.title}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
                   </div>
                   <div>
                     {" "}
