@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { Image } from "@chakra-ui/react";
 
 import RelatedPost from "@/components/Blog/RelatedPost";
 import SharePost from "@/components/Blog/SharePost";
@@ -62,7 +61,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                          <Image src={product.mainImage} alt={product.name} />
+                          <img src={product.mainImage} alt={product.name} />
                         </div>
                       </div>
                       <div className="w-full">
@@ -141,10 +140,9 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
-                      <Image
+                      <img
                         src={product.mainImage}
                         alt={product.name}
-                        fill
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
