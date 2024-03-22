@@ -48,7 +48,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             {getSubstring(product.name, 20)}
           </h3>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
-            {getSubstring(product.description, 30)}{" "}
+            {/* {getSubstring(product.description, 30)}{" "} */}
           </p>
           <div className="mb-4 flex items-center">
             {/* Star Rating */}

@@ -5,7 +5,7 @@ import { CustomBreadcrumb } from "@/components/CustomBreadcrumb";
 import { ProductCard } from "@/components/ProductCard";
 import { IBreadcrumbItem, IProduct } from "@/utils/model";
 import React, { useState } from "react";
-import { usePagination } from "@mantine/hooks";
+// import { usePagination } from "@mantine/hooks";
 // import { Hero } from "@/components/Hero/Hero";
 
 interface AllProductsProps {
@@ -24,15 +24,15 @@ export const AllProducts = ({
   );
 
   const total = Math.ceil(products.length / itemsPerPage);
-  const pagination = usePagination({
-    total,
-    initialPage: 1,
-    onChange(page) {
-      const start = (page - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      setVisibleProducts(products.slice(start, end));
-    },
-  });
+  // const pagination = usePagination({
+  //   total,
+  //   initialPage: 1,
+  //   onChange(page) {
+  //     const start = (page - 1) * itemsPerPage;
+  //     const end = start + itemsPerPage;
+  //     setVisibleProducts(products.slice(start, end));
+  //   },
+  // });
 
   return (
     <>
@@ -42,7 +42,7 @@ export const AllProducts = ({
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-      {itemsPerPage < products.length && (
+      {/* {itemsPerPage < products.length && (
         <div>
           {pagination.range.map((range) =>
             range === "dots" ? (
@@ -52,7 +52,7 @@ export const AllProducts = ({
             ),
           )}
         </div>
-      )}
+      )} */}
     </>
   );
 };

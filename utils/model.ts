@@ -13,7 +13,7 @@ export interface IRating {
 export interface IProduct {
   id: string;
   name: string;
-  description: string;
+  description: any;
   content: any;
   price: number;
   rating: IRating;
