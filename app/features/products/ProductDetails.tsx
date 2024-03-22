@@ -373,20 +373,18 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                     <nav>
                       <h2>Table of Contents</h2>
                       <ul>
-                        {product.tableOfContents.map((item) => (
-                          <li key={item.id}>
-                            <a href={`#${item.id}`}>{item.title}</a>
-                          </li>
-                        ))}
+                        {product.tableOfContents &&
+                          product.tableOfContents.map((item) => (
+                            <li key={item.id}>
+                              <a href={`#${item.id}`}>{item.title}</a>
+                            </li>
+                          ))}
                       </ul>
                     </nav>
                   </div>
                   <div>
                     {" "}
-                    <PortableText
-                      value={product.description}
-                      components={portableTextComponents}
-                    />
+                    <PortableText value={product.description} />
                   </div>
                   <br />
                   <br />
