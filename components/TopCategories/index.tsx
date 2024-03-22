@@ -29,15 +29,13 @@ export const TopCategories = ({ categories }: TopCategoriesProps) => {
                 data-wow-delay=".15s"
               >
                 <Link href={`/categories/${category.id}`}>
-                  <a>
-                    <Image
-                      src={category.image}
-                      alt={category.name}
-                      height={100}
-                      width={100}
-                      className="h-48 w-full object-cover"
-                    />
-                  </a>
+                  {/* <a> */}
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="h-48 w-full object-cover"
+                  />
+                  {/* </a> */}
                 </Link>
                 <div className="p-4">
                   <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
@@ -60,7 +58,7 @@ interface TopCategoryCardProps {
 const TopCategoryCard = ({ category }: TopCategoryCardProps) => (
   // <Link href={`/categories/${category.id}`}>
   <div>
-    <Image src={category.image} alt={category.name} height={100} width={100} />
+    <img src={category.image} alt={category.name} />
 
     <div>
       <h1>{category.name}</h1>

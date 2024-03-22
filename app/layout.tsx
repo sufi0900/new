@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactIs.ReactNode;
 }) {
   return (
     <html suppressHydrationWarning lang="en">
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
         <AppContextProvider>
           <Providers>
-            {/* <Header /> */}
+            <Header />
             {children}
             <Footer />
             <ScrollToTop />

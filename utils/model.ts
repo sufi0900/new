@@ -14,6 +14,7 @@ export interface IProduct {
   id: string;
   name: string;
   description: string;
+  content: any;
   price: number;
   rating: IRating;
   slug: string;

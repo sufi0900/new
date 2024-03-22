@@ -1,28 +1,61 @@
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import { Image } from "@chakra-ui/react";
+
 import RelatedPost from "@/components/Blog/RelatedPost";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import NewsLatterBox from "@/components/Contact/NewsLatterBox";
-import Image from "next/image";
+// import { AddToWishlistButton } from '@src/components/AddToWishlistButton';
+// import { AddToCartButton } from '@src/components/Cart/AddToCartButton';
+import { CustomBreadcrumb } from "@/components/CustomBreadcrumb";
+// import { Quantity } from '@src/components/Quantity/Quantity';
+// import { Rating } from '@src/components/Rating';
+import { AppContext } from "@/context/AppContext";
+import { getSubstring } from "@/utils/helpers";
+import { IBreadcrumbItem, IProduct } from "@/utils/model";
+import React, { useContext, useState } from "react";
+import { PortableText } from "@portabletext/react";
+import { urlForImage } from "@/sanity/lib/image";
+interface ProductDetailsProps {
+  product: IProduct;
+}
 
-import { Metadata } from "next";
+const items: IBreadcrumbItem[] = [
+  {
+    name: "Products",
+    link: "/products",
+  },
+  {
+    name: "Categories",
+    link: "/categories",
+  },
+];
 
-export const metadata: Metadata = {
-  title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Details Page for Startup Nextjs Template",
-  // other metadata
-};
-
-const BlogSidebarPage = () => {
+export const ProductDetails = ({ product }: ProductDetailsProps) => {
+  const PortableTextComponent = {};
   return (
     <>
+      <CustomBreadcrumb
+        items={[
+          ...items,
+          {
+            name: product.category.name,
+            link: `/categories/${product.category.id}`,
+          },
+          {
+            name: getSubstring(product.name, 20),
+            link: `/products/${product.slug}`,
+          },
+        ]}
+      />
       <section className="overflow-hidden pb-[120px] pt-[180px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h1 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
-                  10 amazing sites to download stock photos & digital assets for
-                  free
+                  {product.name}
                 </h1>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
                   <div className="flex flex-wrap items-center">
@@ -30,8 +63,8 @@ const BlogSidebarPage = () => {
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           <Image
-                            src="/images/blog/author-02.png"
-                            alt="author"
+                            src={product.mainImage}
+                            alt={product.name}
                             fill
                           />
                         </div>
@@ -113,14 +146,18 @@ const BlogSidebarPage = () => {
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                       <Image
-                        src="/images/blog/blog-details-01.jpg"
-                        alt="image"
+                        src={product.mainImage}
+                        alt={product.name}
                         fill
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                    <PortableText
+                      value={product.content}
+                      components={PortableTextComponent}
+                    />
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Quis enim lobortis scelerisque fermentum. Neque
@@ -467,5 +504,3 @@ const BlogSidebarPage = () => {
     </>
   );
 };
-
-export default BlogSidebarPage;
