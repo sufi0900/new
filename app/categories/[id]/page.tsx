@@ -1,4 +1,4 @@
-import { Hero } from "@/app/Hero/Hero";
+// import { Hero } from "@/app/Hero/Hero";
 import { AllProducts } from "@/app/features/products";
 import { IBreadcrumbItem, ICategory, IProduct } from "@/utils/model";
 import { client } from "@/utils/sanity.client";

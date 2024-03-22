@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { IBreadcrumbItem, IProduct } from "@/utils/model";
 import React, { useState } from "react";
 import { usePagination } from "@mantine/hooks";
-import { Hero } from "@/components/Hero/Hero";
+// import { Hero } from "@/components/Hero/Hero";
 
 interface AllProductsProps {
   products: IProduct[];

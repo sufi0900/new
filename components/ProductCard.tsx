@@ -1,16 +1,8 @@
 "use client";
-import {
-  Box,
-  Card,
-  CardBody,
-  Flex,
-  Heading,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Card } from "@chakra-ui/react";
 import { getSubstring } from "@/utils/helpers";
 import { IProduct } from "@/utils/model";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 
 import Link from "next/link";
 // import { AddToWishlistButton } from './AddToWishlistButton';
@@ -18,12 +10,12 @@ import Link from "next/link";
 // import { Rating } from './Rating';
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
-import Chip from "@mui/material/Chip";
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 22,
-  height: 22,
-  border: `2px solid ${theme.palette.background.paper}`,
-}));
+// import Chip from "@mui/material/Chip";
+// const SmallAvatar = styled(Avatar)(({ theme }) => ({
+//   width: 22,
+//   height: 22,
+//   border: `2px solid ${theme.palette.background.paper}`,
+// }));
 interface ProductCardProps {
   product: IProduct;
 }
