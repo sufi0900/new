@@ -1,8 +1,8 @@
-'use client';
-import { Card, CardBody, Grid, Heading } from '@chakra-ui/react';
-import { ICategory } from '@src/model';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import { Card, CardBody, Grid, Heading } from "@chakra-ui/react";
+import { ICategory } from "@/utils/model";
+import Image from "next/image";
+import Link from "next/link";
 
 interface AllCategoriesProps {
   categories: ICategory[];
@@ -11,10 +11,10 @@ export const AllCategories = ({ categories }: AllCategoriesProps) => {
   return (
     <Grid
       py="2rem"
-      w={{ base: '100%', lg: '90%' }}
+      w={{ base: "100%", lg: "90%" }}
       templateColumns={{
-        base: 'repeat(1, 1fr)',
-        lg: 'repeat(2, 1fr)',
+        base: "repeat(1, 1fr)",
+        lg: "repeat(2, 1fr)",
       }}
       gap="20px"
       mx="auto"
@@ -40,7 +40,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => (
       w="100%"
       p="10px"
       h="100%"
-      _hover={{ cursor: 'pointer', bgColor: 'gray.100' }}
+      _hover={{ cursor: "pointer", bgColor: "gray.100" }}
     >
       <Image
         src={category.image}
@@ -50,7 +50,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => (
       />
 
       <CardBody>
-        <Heading size={{ base: 'sm', lg: 'md' }}>{category.name}</Heading>
+        <Heading size={{ base: "sm", lg: "md" }}>{category.name}</Heading>
       </CardBody>
     </Card>
   </Link>
