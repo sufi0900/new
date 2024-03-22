@@ -1,13 +1,13 @@
-export const Blog = {
-  name: "blog",
-  title: "Blogs",
+export const News = {
+  name: "news",
+  title: "News",
   type: "document",
   fields: [
     {
       name: "title",
       title: "Title",
       type: "string",
-      description: "title of blog",
+      description: "title of News",
     },
 
     {
@@ -24,12 +24,7 @@ export const Blog = {
         maxLength: 100,
       },
     },
-    {
-      name: "categories",
-      title: "Categories",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
-    },
+
     {
       name: "author",
       title: "Author",
