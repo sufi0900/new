@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
+import { Search } from "../Search/Search";
 
 const Hero = () => {
   return (
     <>
+      <Search />
       <section
         id="home"
         className=" relative z-10 overflow-hidden bg-teal-50 pt-[120px] dark:bg-gray-800   md:pt-[150px] xl:pt-[180px] 2xl:pt-[210px]"

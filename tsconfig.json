@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     "components/TopCategories/SingleFeature.jsx",
-    "components/Search/Search.jsx",
+    "components/Search/Search.tsx",
     "app/features/checkout/index.jsx",
     "app/layout.jsx"
   ],
