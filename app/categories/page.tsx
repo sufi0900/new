@@ -1,7 +1,7 @@
 import { Hero } from "@/app/Hero/Hero";
 import { AllCategories } from "@/components/categories/index";
 import { ICategory } from "@/utils/model";
-import { client } from "@utils/sanity.client";
+import { client } from "@/utils/sanity.client";
 import { groq } from "next-sanity";
 
 const getAllCategoriesQueries = `
