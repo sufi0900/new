@@ -62,11 +62,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                          <Image
-                            src={product.mainImage}
-                            alt={product.name}
-                            fill
-                          />
+                          <Image src={product.mainImage} alt={product.name} />
                         </div>
                       </div>
                       <div className="w-full">

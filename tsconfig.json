@@ -30,7 +30,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/TopCategories/SingleFeature.jsx",
-    "components/Search/Search.jsx"
+    "components/Search/Search.jsx",
+    "app/features/checkout/index.jsx"
   ],
   "exclude": ["node_modules"]
 }
