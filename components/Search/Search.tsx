@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-children-prop */
-import { SearchIcon } from "@chakra-ui/icons";
+// import { SearchIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
@@ -18,6 +18,7 @@ import { groq } from "next-sanity";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { inputGroup } from "./Style";
+import { SearchOff } from "@mui/icons-material";
 
 const query: string = groq`
     *[_type == "product" && (name match $searchText || description match $searchText) ] {
@@ -71,10 +72,7 @@ export const Search = () => {
   return (
     <Box pos="relative" w={{ base: "100%", lg: "32rem" }} ref={ref}>
       <InputGroup {...inputGroup}>
-        <InputLeftElement
-          pointerEvents="none"
-          children={<SearchIcon color="gray.400" />}
-        />
+        <InputLeftElement pointerEvents="none" children={<SearchOff />} />
         <Input
           type="text"
           placeholder="Search..."
