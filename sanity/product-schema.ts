@@ -10,6 +10,32 @@ export const ProductSchema = {
       description: "Name of Product",
     },
     {
+      name: "tableOfContents",
+      title: "Table of Contents",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "title",
+              title: "Title",
+              type: "string",
+            },
+            {
+              name: "slug",
+              title: "Slug",
+              type: "slug",
+              options: {
+                source: "title",
+                maxLength: 100,
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",

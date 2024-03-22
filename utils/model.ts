@@ -14,6 +14,8 @@ export interface IProduct {
   id: string;
   name: string;
   description: any;
+  tableOfContents: { title: string; slug: string }[];
+
   content: any;
   price: number;
   rating: IRating;
