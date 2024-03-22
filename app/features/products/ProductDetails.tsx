@@ -16,6 +16,9 @@ import { IBreadcrumbItem, IProduct } from "@/utils/model";
 import React, { useContext, useState } from "react";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
+
+export const revalidate = false;
+export const dynamic = "force-dynamic";
 interface ProductDetailsProps {
   product: IProduct;
 }
@@ -152,9 +155,13 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                       value={product.description}
                       // components={PortableTextComponent}
                     />
-                    {product.description}
+                    {/*  */}
                     <br />
                     <br />
+                    <PortableText
+                      value={product.content}
+                      // components={PortableTextComponent}
+                    />
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Quis enim lobortis scelerisque fermentum. Neque

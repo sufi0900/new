@@ -23,7 +23,7 @@ export const AllProducts = ({
     products.slice(0, itemsPerPage),
   );
 
-  const total = Math.ceil(products.length / itemsPerPage);
+  // const total = Math.ceil(products.length / itemsPerPage);
   // const pagination = usePagination({
   //   total,
   //   initialPage: 1,
@@ -39,20 +39,9 @@ export const AllProducts = ({
       <CustomBreadcrumb items={breadcrumbItems} />
       <div>
         {visibleProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard product={product} />
         ))}
       </div>
-      {/* {itemsPerPage < products.length && (
-        <div>
-          {pagination.range.map((range) =>
-            range === "dots" ? (
-              <Button key={range}>...</Button>
-            ) : (
-              <Button>{range}</Button>
-            ),
-          )}
-        </div>
-      )} */}
     </>
   );
 };
