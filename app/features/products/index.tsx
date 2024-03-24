@@ -36,12 +36,9 @@ export const AllProducts = ({
 
   return (
     <>
-      <CustomBreadcrumb items={breadcrumbItems} />
-      <div>
-        {visibleProducts.map((product) => (
-          <ProductCard product={product} />
-        ))}
-      </div>
+      {visibleProducts.map((product) => (
+        <ProductCard product={product} />
+      ))}
     </>
   );
 };

@@ -15,6 +15,7 @@ export const CategorySchema = {
       options: {
         source: "name",
         maxLength: 50,
+        slugify: (input) => input.toLowerCase().replace(/\s+/g, "-"),
       },
     },
     {

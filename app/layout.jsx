@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
         <AppContextProvider>
           <Providers>
             <Header />
+            <br />
             {children}
             <Footer />
             <ScrollToTop />

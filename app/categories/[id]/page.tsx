@@ -1,4 +1,3 @@
-// import { Hero } from "@/app/Hero/Hero";
 import { AllProducts } from "@/app/features/products";
 import { IBreadcrumbItem, ICategory, IProduct } from "@/utils/model";
 import { client } from "@/utils/sanity.client";
@@ -6,8 +5,8 @@ import { groq } from "next-sanity";
 import React from "react";
 
 const query: string = groq`
-    *[_type == "product" && references($id)] {
-        ...,
+*[_type == "product" && references(*[_type == "category" && slug.current == $id]._id)] {
+       
         "id": _id,
         "slug": slug.current,
         "mainImage": mainImage.asset->url,
@@ -23,35 +22,14 @@ type Props = {
   };
 };
 
-const items: IBreadcrumbItem[] = [
-  {
-    name: "Products",
-    link: "/products",
-  },
-  {
-    name: "Categories",
-    link: "/categories",
-  },
-];
-
 async function CategoryPage({ params: { id } }: Props) {
   const products: IProduct[] = await client.fetch(query, { id });
 
   return (
     <>
-      {/* <Hero
-        heading={products[0]?.category?.name}
-        description={`Best and Affordable ${products[0]?.category?.name}`}
-        imageUrl={products[0]?.category?.image}
-        btnLabel="View All Categories"
-        btnLink="/categories"
-      /> */}
       <AllProducts
         products={products}
-        breadcrumbItems={[
-          ...items,
-          { name: products[0]?.category?.name, link: "#" },
-        ]}
+        breadcrumbItems={[{ name: products[0]?.category?.name, link: "#" }]}
       />
     </>
   );
@@ -64,9 +42,11 @@ export async function generateStaticParams() {
     "id": _id
   }`;
 
-  const categories: ICategory[] = await client.fetch(query);
+  const categories: ICategory[] = await client.fetch(
+    groq`*[_type == "category"]{ ..., "slug": slug.current }`,
+  );
 
   return categories.map((category) => ({
-    id: category.id,
+    params: { id: category.slug },
   }));
 }

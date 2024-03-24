@@ -15,7 +15,6 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { IFeaturedItems } from "@/utils/model";
 import { client } from "@/utils/sanity.client";
 import { groq } from "next-sanity";

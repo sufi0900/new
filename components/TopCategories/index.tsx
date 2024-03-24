@@ -1,16 +1,6 @@
 "use client";
-import { Card } from "@mui/material";
 
-import Avatar from "@mui/material/Avatar"; // Add this import statement
-import Breadcrumb from "@/components/Common/Breadcrumb";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-
-import { CalendarMonth, Email, Person } from "@mui/icons-material";
-// import { SectionHeading } from '@src/components/SectionHeading';
 import { ICategory } from "@/utils/model";
-import Image from "next/image";
 import Link from "next/link";
 
 interface TopCategoriesProps {
@@ -28,14 +18,12 @@ export const TopCategories = ({ categories }: TopCategoriesProps) => {
                 className="wow fadeInUp transform overflow-hidden rounded-lg border border-gray-200 p-2 shadow-lg transition duration-300 hover:scale-105 dark:border-gray-700"
                 data-wow-delay=".15s"
               >
-                <Link href={`/categories/${category.id}`}>
-                  {/* <a> */}
+                <Link href={`/categories/${category.slug}`}>
                   <img
                     src={category.image}
                     alt={category.name}
                     className="h-48 w-full object-cover"
                   />
-                  {/* </a> */}
                 </Link>
                 <div className="p-4">
                   <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
@@ -50,19 +38,3 @@ export const TopCategories = ({ categories }: TopCategoriesProps) => {
     </section>
   );
 };
-
-interface TopCategoryCardProps {
-  category: ICategory;
-}
-
-const TopCategoryCard = ({ category }: TopCategoryCardProps) => (
-  // <Link href={`/categories/${category.id}`}>
-  <div>
-    <img src={category.image} alt={category.name} />
-
-    <div>
-      <h1>{category.name}</h1>
-    </div>
-  </div>
-  // </Link>
-);

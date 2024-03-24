@@ -1,16 +1,18 @@
 // import { Hero } from "@/app/Hero/Hero";
+
 import { AllCategories } from "@/components/categories/index";
 import { ICategory } from "@/utils/model";
 import { client } from "@/utils/sanity.client";
 import { groq } from "next-sanity";
 
 const getAllCategoriesQueries = `
-    *[_type == "category"] {
-        "id": _id,
-        name,
-        "slug": slug.current,
-        "image": image.asset->url 
-    }
+*[_type == "category" && slug.current == $slug][0] {
+  "id": _id,
+  name,
+  "slug": slug.current,
+  "image": image.asset->url 
+}
+
 `;
 
 const getCategoriesAsync = () => {
@@ -20,17 +22,12 @@ const getCategoriesAsync = () => {
 export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function AllCategoriesPage() {
-  const categories: ICategory[] = await getCategoriesAsync();
+  const categories: ICategory[] = await client.fetch(
+    groq`*[_type == "category"]{ ..., "slug": slug.current }`,
+  );
 
   return (
     <>
-      {/* <Hero
-        heading="Product Categories"
-        description="We've got all your favorite Categories"
-        imageUrl="/store.png"
-        btnLabel="View All Products"
-        btnLink="/products"
-      /> */}
       <AllCategories categories={categories} />
     </>
   );
