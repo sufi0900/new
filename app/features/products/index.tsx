@@ -36,6 +36,13 @@ export const AllProducts = ({
 
   return (
     <>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      page
       {visibleProducts.map((product) => (
         <ProductCard product={product} />
       ))}

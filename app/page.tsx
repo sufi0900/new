@@ -18,6 +18,8 @@ import { Metadata } from "next";
 import { IFeaturedItems } from "@/utils/model";
 import { client } from "@/utils/sanity.client";
 import { groq } from "next-sanity";
+import { getCategories, getGames } from "@/components/apis";
+import GameCategoryCard from "@/components/GameCategoryCard/GameCategoryCard";
 
 const getAllFeaturedItemsQueries = `
     *[_type == "featuredProductsAndCategories"]{
@@ -60,21 +62,35 @@ const getFeaturedItemsAsync = () => {
   return client.fetch(groq`${getAllFeaturedItemsQueries}`);
 };
 export default async function Home() {
-  const featuredItems: IFeaturedItems[] = await getFeaturedItemsAsync();
-
+  const categories = await getCategories();
+  const games = await getGames();
+  const isTrendingGames = games?.filter((game) => game.isTrending);
+  const isFeaturedGame = games?.find((game) => game.isFeatured);
+  // const recentGames = await getRecentGames();
   return (
     <>
       <ScrollUp />
 
       <Hero />
 
-      <TopCategories
+      <div className="flex flex-wrap">
+        {categories.map((category) => (
+          <GameCategoryCard
+            key={category._id}
+            categoryImage={category.image}
+            categoryName={category.name}
+            slug={category.slug.current}
+          />
+        ))}
+      </div>
+
+      {/* <TopCategories
         categories={
           featuredItems && featuredItems.length > 0
             ? featuredItems[0].topCategories
             : []
         }
-      />
+      /> */}
 
       <Marquee />
       <Feature />

@@ -70,12 +70,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         </div>
         <div className="flex flex-col sm:flex-row sm:justify-between">
-          <Link
+          {/* <Link
             href={`/categories/${product.category.slug}/${product.slug}`}
             className="mb-2 inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition duration-300 ease-in-out hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 sm:mb-0"
-          >
-            Visit AI Tool
-          </Link>
+          > */}
+          Visit AI Tool
+          {/* </Link> */}
           <a
             href="/how-to-use-ai-tool-1"
             className="inline-block rounded-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"

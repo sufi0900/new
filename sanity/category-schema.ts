@@ -1,5 +1,5 @@
 export const CategorySchema = {
-  name: "category",
+  name: "category2",
   title: "Category",
   type: "document",
   fields: [
