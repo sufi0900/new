@@ -1,4 +1,5 @@
 // import { Hero } from "@/app/Hero/Hero";
+
 import { AllProducts } from "@/app/features/products";
 import { IBreadcrumbItem, ICategory, IProduct } from "@/utils/model";
 import { client } from "@/utils/sanity.client";
@@ -6,12 +7,12 @@ import { groq } from "next-sanity";
 import React from "react";
 
 const query: string = groq`
-    *[_type == "product" && references($id)] {
+    *[_type == "product" && references($slug)] {
         ...,
         "id": _id,
         "slug": slug.current,
         "mainImage": mainImage.asset->url,
-        category->{ name, "image": image.asset->url  },
+        category->{ name, "slug": slug.current, "image": image.asset->url  },
     }
 `;
 
@@ -19,7 +20,7 @@ export const revalidate = 60; // revalidate this page every 60 seconds
 
 type Props = {
   params: {
-    id: string;
+    slug: string; // change 'id' to 'slug'
   };
 };
 
@@ -34,23 +35,19 @@ const items: IBreadcrumbItem[] = [
   },
 ];
 
-async function CategoryPage({ params: { id } }: Props) {
-  const products: IProduct[] = await client.fetch(query, { id });
+async function CategoryPage({ params: { slug } }: Props) {
+  const products: IProduct[] = await client.fetch(query, { slug });
 
   return (
     <>
-      {/* <Hero
-        heading={products[0]?.category?.name}
-        description={`Best and Affordable ${products[0]?.category?.name}`}
-        imageUrl={products[0]?.category?.image}
-        btnLabel="View All Categories"
-        btnLink="/categories"
-      /> */}
       <AllProducts
         products={products}
         breadcrumbItems={[
           ...items,
-          { name: products[0]?.category?.name, link: "#" },
+          {
+            name: products[0]?.category?.name,
+            link: `/categories/${products[0]?.category?.slug}`,
+          },
         ]}
       />
     </>
@@ -61,14 +58,13 @@ export default CategoryPage;
 
 export async function generateStaticParams() {
   const query = groq`*[_type == "category"] {
-    "id": _id
-    "slug": slug.current
-
+    "id": _id,
+    "slug": slug.current,
   }`;
 
   const categories: ICategory[] = await client.fetch(query);
 
   return categories.map((category) => ({
-    id: category.slug,
+    params: { slug: category.slug }, // designate the 'slug' as a parameter for each category route
   }));
 }

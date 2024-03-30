@@ -33,13 +33,6 @@ export default async function ProductsPage() {
 
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      page
       <AllProducts products={products} />
     </>
   );
