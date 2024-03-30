@@ -1,5 +1,4 @@
 // import { Hero } from "@/app/Hero/Hero";
-
 import { AllCategories } from "@/components/categories/index";
 import { ICategory } from "@/utils/model";
 import { client } from "@/utils/sanity.client";
@@ -25,6 +24,13 @@ export default async function AllCategoriesPage() {
 
   return (
     <>
+      {/* <Hero
+        heading="Product Categories"
+        description="We've got all your favorite Categories"
+        imageUrl="/store.png"
+        btnLabel="View All Products"
+        btnLink="/products"
+      /> */}
       <AllCategories categories={categories} />
     </>
   );

@@ -10,13 +10,6 @@ interface TopCategoriesProps {
 export const TopCategories = ({ categories }: TopCategoriesProps) => {
   return (
     <section id="features" className="py-5 md:py-5 lg:py-5">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      page
       <div className="container">
         <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => (

@@ -1,5 +1,7 @@
 // Game Schema
 
+import { title } from "process";
+
 export const Game = {
   name: "game",
   type: "document",
@@ -20,17 +22,8 @@ export const Game = {
     },
     {
       name: "images",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            { name: "url", type: "url", title: "URL" },
-            { name: "file", type: "file", title: "File" },
-          ],
-          validation: (Rule: any) => Rule.required(),
-        },
-      ],
+      title: "Image",
+      type: "image",
     },
     {
       name: "price",

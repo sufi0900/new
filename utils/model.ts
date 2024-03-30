@@ -9,26 +9,6 @@ export interface IRating {
   rate: number;
   count: number;
 }
-export interface Game {
-  _id: string;
-  name: string;
-  price: number;
-  images: Array<{
-    _key: string;
-    url: string;
-  }>;
-  isFeatured: boolean;
-  isTrending: boolean;
-  category: { name: string; slug: { current: string } };
-  slug: { current: string };
-  quantity: number;
-  description: string;
-}
-
-export type GameSubset = Pick<
-  Game,
-  "_id" | "price" | "quantity" | "images" | "name"
-> & { maxQuantity: number };
 
 export interface IProduct {
   id: string;
@@ -47,37 +27,12 @@ export interface IProduct {
   category: ICategory;
   gallery: string[];
 }
-export interface Aitool {
-  id: string;
-  title: string;
-  description: any;
-  tableOfContents: {
-    title: string;
-    description: string;
-    id: string;
-  }[];
-  content: any;
-  price: number;
-  rating: IRating;
-  slug: { current: string };
-  mainImage: string;
-  categoryAitool: { name: string; slug: { current: string } };
-
-  gallery: string[];
-}
 
 export interface ICategory {
   id: string;
   name: string;
   image: string;
-  slug: { current: string };
-}
-export interface Category {
-  _id: string;
-  name: string;
-  slug: { current: string };
-  image: string;
-  subtitle: string;
+  slug: string;
 }
 
 export interface IFeaturedItems {
